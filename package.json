@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tomsdoo/ad-hoc-open-api/issues"
   },
-  "homepage": "https://github.com/tomsdoo/ad-hoc-open-api#readme"
+  "homepage": "https://github.com/tomsdoo/ad-hoc-open-api#readme",
+  "dependencies": {
+    "yamljs": "^0.3.0"
+  }
 }
