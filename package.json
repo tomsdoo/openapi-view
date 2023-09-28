@@ -1,0 +1,20 @@
+{
+  "name": "ad-hoc-open-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomsdoo/ad-hoc-open-api.git"
+  },
+  "keywords": [],
+  "author": "tom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomsdoo/ad-hoc-open-api/issues"
+  },
+  "homepage": "https://github.com/tomsdoo/ad-hoc-open-api#readme"
+}
