@@ -1,5 +1,5 @@
 {
-  "name": "ad-hoc-open-api",
+  "name": "openapi-view",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -12,19 +12,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomsdoo/ad-hoc-open-api.git"
+    "url": "git+https://github.com/tomsdoo/openapi-view.git"
   },
   "keywords": [],
   "author": "tom",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomsdoo/ad-hoc-open-api/issues"
+    "url": "https://github.com/tomsdoo/openapi-view/issues"
   },
-  "homepage": "https://github.com/tomsdoo/ad-hoc-open-api#readme",
+  "homepage": "https://github.com/tomsdoo/openapi-view#readme",
   "dependencies": {
     "yamljs": "^0.3.0"
   },
   "bin": {
-    "ad-hoc-open-api": "./bin/ad-hoc-open-api.js"
+    "openapi-view": "./bin/openapi-view.js"
   }
 }
