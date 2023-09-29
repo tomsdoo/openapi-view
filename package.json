@@ -25,6 +25,6 @@
     "yamljs": "^0.3.0"
   },
   "bin": {
-    "ad-hoc-open-api": "./bin/ad-hoc-open-api"
+    "ad-hoc-open-api": "./bin/ad-hoc-open-api.js"
   }
 }
