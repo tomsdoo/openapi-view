@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/tomsdoo/openapi-view#readme",
   "dependencies": {
+    "opener": "^1.5.2",
     "yamljs": "^0.3.0"
   },
   "bin": {
