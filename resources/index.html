@@ -1,0 +1,43 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Swagger UI</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.17.2/swagger-ui.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.17.2/swagger-ui-bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.17.2/swagger-ui-standalone-preset.js"></script>
+    <script src="spec.js"></script>
+    <style>
+      #swagger-ui .topbar {
+        display: none;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        //<editor-fold desc="Changeable Configuration Block">
+
+        // the following lines will be replaced by docker/configurator, when it runs in a docker-container
+        window.ui = SwaggerUIBundle({
+          spec: swaggerSpec,
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+          plugins: [SwaggerUIBundle.plugins.DownloadUrl],
+          layout: 'StandaloneLayout'
+        })
+
+        //</editor-fold>
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+  </body>
+</html>

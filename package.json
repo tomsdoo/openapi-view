@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "bin",
+    "resources"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomsdoo/ad-hoc-open-api.git"
@@ -19,5 +23,8 @@
   "homepage": "https://github.com/tomsdoo/ad-hoc-open-api#readme",
   "dependencies": {
     "yamljs": "^0.3.0"
+  },
+  "bin": {
+    "ad-hoc-open-api": "./bin/ad-hoc-open-api.js"
   }
 }
