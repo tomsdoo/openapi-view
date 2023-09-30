@@ -6,6 +6,7 @@ const path = require("path");
 const os = require("os");
 const yamljs = require("yamljs");
 const httpServer = require("http-server");
+const portfinder = require("portfinder");
 const opener = require("opener");
 const program = require("commander");
 
@@ -30,7 +31,7 @@ function outHelp() {
   });
 }
 
-function work(options, command) {
+async function work(options, command) {
   const specFile = options.spec;
   if(options.help || !specFile) {
     outHelp();
@@ -51,7 +52,7 @@ function work(options, command) {
   const defContent = `window.swaggerSpec = ${JSON.stringify(definitions, null, 2)}`;
   fs.writeFileSync(defJsFileName, defContent);
 
-  const port = Number(options.port) || 8080;
+  const port = Number(options.port) || await portfinder.getPortPromise();
 
   const server = httpServer.createServer({
     root: tempDir,
