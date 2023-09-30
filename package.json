@@ -23,6 +23,7 @@
   "homepage": "https://github.com/tomsdoo/openapi-view#readme",
   "dependencies": {
     "commander": "^11.0.0",
+    "http-server": "^14.1.1",
     "opener": "^1.5.2",
     "yamljs": "^0.3.0"
   },
