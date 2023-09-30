@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 const yamljs = require("yamljs");
+const httpServer = require("http-server");
 const opener = require("opener");
 const program = require("commander");
 
@@ -12,6 +13,7 @@ const COMMAND_NAME = "openapi-view";
 
 program
   .option("--spec <spec.yml>", "API spec file")
+  .option("-p --port <port>", "port to listen")
   .option("--help", "show help")
   .action(work)
   .parse();
@@ -48,6 +50,16 @@ function work(options, command) {
   
   const defContent = `window.swaggerSpec = ${JSON.stringify(definitions, null, 2)}`;
   fs.writeFileSync(defJsFileName, defContent);
-  
-  opener(indexHtmlFileName);
+
+  const port = Number(options.port) || 8080;
+
+  const server = httpServer.createServer({
+    root: tempDir,
+  });
+
+  server.listen(port, () => {
+    const url = `http://localhost:${port}`;
+    console.log(`opening ${url}`);
+    opener(url);
+  });
 }
