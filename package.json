@@ -25,6 +25,7 @@
     "commander": "^11.0.0",
     "http-server": "^14.1.1",
     "opener": "^1.5.2",
+    "portfinder": "^1.0.32",
     "yamljs": "^0.3.0"
   },
   "bin": {
