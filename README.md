@@ -19,7 +19,7 @@ brew install tomsdoo/brew/openapi-view
 http://localhost:(port) will be opened.
 
 ``` shell
-openapi-view --spec some-spec.yml
+openapi-view some-spec.yml
 ```
 
 > **Note**  
