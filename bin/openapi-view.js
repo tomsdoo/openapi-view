@@ -8,7 +8,8 @@ const yamljs = require("yamljs");
 const httpServer = require("http-server");
 const portfinder = require("portfinder");
 const opener = require("opener");
-const program = require("commander");
+const { Command }= require("commander");
+const program = new Command();
 
 const COMMAND_NAME = "openapi-view";
 
