@@ -8,6 +8,7 @@ import yamljs from "yamljs";
 import httpServer from "http-server";
 import portfinder from "portfinder";
 import opener from "opener";
+import { fileURLToPath } from "url";
 import { Command } from "commander";
 
 const program = new Command();
@@ -44,12 +45,25 @@ async function work(options, command) {
   fs.mkdirSync(tempDir, { recursive: true });
   const indexHtmlFileName = path.join(tempDir, "index.html");
   const defJsFileName = path.join(tempDir, "spec.js");
-  
-  const indexHtmlContent = fs.readFileSync(path.join(__dirname, "../resources/index.html"), { encoding: "utf8" });
+
+  const indexHtmlPath = fileURLToPath(new URL("../resources/index.html", import.meta.url));
+  const indexHtmlContent = fs.readFileSync(indexHtmlPath, { encoding: "utf8" });
   fs.writeFileSync(indexHtmlFileName, indexHtmlContent);
-  
-  const yamlContent = fs.readFileSync(specFile, { encoding: "utf8" });
-  const definitions = yamljs.parse(yamlContent);
+
+  const definitions = (() => {
+    const ext = path.extname(specFile);
+    const isSpecYaml = /\.ya?ml/i.test(ext);
+    if (isSpecYaml) {
+      const yamlContent = fs.readFileSync(specFile, { encoding: "utf8" });
+      return yamljs.parse(yamlContent);
+    }
+    const isSpecJson = /\.json/i.test(ext);
+    if (isSpecJson) {
+      const jsonContent = fs.readFileSync(specFile, { encoding: "utf8" });
+      return JSON.parse(jsonContent);
+    }
+    throw new Error("spec file extention is invalid");
+  })();
   
   const defContent = `window.swaggerSpec = ${JSON.stringify(definitions, null, 2)}`;
   fs.writeFileSync(defJsFileName, defContent);
