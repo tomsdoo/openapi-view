@@ -16,7 +16,7 @@ const program = new Command();
 const COMMAND_NAME = "openapi-view";
 
 program
-  .option("--spec <spec.yml>", "API spec file")
+  .option("--spec <spec file>", "API spec file")
   .option("-p --port <port>", "port to listen")
   .option("--help", "show help")
   .action(work)
