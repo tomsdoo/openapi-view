@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs = require("fs");
-const path = require("path");
-const os = require("os");
-const yamljs = require("yamljs");
-const httpServer = require("http-server");
-const portfinder = require("portfinder");
-const opener = require("opener");
-const { Command }= require("commander");
+import fs from "fs";
+import path from "path";
+import os from "os";
+import yamljs from "yamljs";
+import httpServer from "http-server";
+import portfinder from "portfinder";
+import opener from "opener";
+import { Command } from "commander";
+
 const program = new Command();
 
 const COMMAND_NAME = "openapi-view";
