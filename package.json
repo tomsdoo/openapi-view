@@ -1,6 +1,6 @@
 {
   "name": "openapi-view",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "a local server that provides the web page with an open api yaml file",
   "type": "module",
   "main": "index.js",
