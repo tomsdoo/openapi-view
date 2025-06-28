@@ -16,27 +16,25 @@ const program = new Command();
 const COMMAND_NAME = "openapi-view";
 
 program
-  .option("--spec <spec file>", "API spec file")
+  .argument("<spec file>", "API spec file")
   .option("-p --port <port>", "port to listen")
-  .option("--help", "show help")
   .action(work)
   .parse();
 
 function outHelp() {
   `
-  usage: ${COMMAND_NAME} [option]
+  usage: ${COMMAND_NAME} <spec file> [option]
 
   example:
-  ${COMMAND_NAME} --spec spec.yml
-  ${COMMAND_NAME} --help
+  ${COMMAND_NAME} spec.yml
+  ${COMMAND_NAME} help
   `.split("\n").forEach(line => {
     console.log(line);
   });
 }
 
-async function work(options, command) {
-  const specFile = options.spec;
-  if(options.help || !specFile) {
+async function work(specFile, options, command) {
+  if(/^help$/i.test(specFile)) {
     outHelp();
     return;
   }
